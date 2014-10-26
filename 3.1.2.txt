@@ -1,0 +1,12 @@
+bash -c string
+
+\ \\n
+'
+"    $  `  \  !        \$  \`  \"  \\  \\n
+
+echo "\!"
+
+"*" "@"
+
+$'string'
+$"string"
