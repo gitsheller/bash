@@ -1,0 +1,5 @@
+list
+
+pipeline ; &  &&  ||  pipeline ... ; & \n
+
+If a command is terminated by the control operator ‘&’, the shell executes the command asynchronously in a subshell.
