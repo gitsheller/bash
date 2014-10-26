@@ -1,0 +1,4 @@
+simple command
+
+cmd args... cntop
+waitpid 128+n
