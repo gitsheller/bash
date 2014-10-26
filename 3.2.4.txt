@@ -1,0 +1,25 @@
+Compound Commands
+
+looping constructs
+until test-commands; do consequent-commands; done
+
+while test-commands; do consequent-commands; done
+
+for name [ [in [words ...] ] ; ] do commands; done      positional parameter    in "$@"
+for (( expr1 ; expr2 ; expr3 )) ; do commands ; done
+
+break continue
+
+Conditional Constructs
+
+if test-commands; then
+consequent-commands;
+[elif more-test-commands; then
+more-consequents;]
+[else alternate-consequents;]
+fi
+
+case word in [ [(] pattern [| pattern]...) command-list ;;]... esac        nocasematch  clause
+;;  ;&  ;;&
+;&    causes execution to continue with the command-list associated with the next clause, if any.
+;;&   causes the shell to test the patterns in the next clause, if any, and execute any associated command-list on a successful match.
