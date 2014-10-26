@@ -1,0 +1,9 @@
+pipelines
+
+[time [-p]] [!] command1 [ [| or |&] command2 ...]
+|&     2>&1 |  the last
+TIMEFORMAT
+Each command in a pipeline is executed in its own subshell
+pipefail
+
+time ! reserved world
