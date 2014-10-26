@@ -1,0 +1,18 @@
+blank
+SPACE TAB
+
+control operator
+\n  ||  &&  &  ;  ;;  |  |&  (  )
+
+metacharacter
+A character that, when unquoted, separates words
+blank  |  &  ;  (  )   <  >
+
+operator
+Operators contain at least one unquoted metacharacter
+control operator  redirection operator
+
+word
+
+token
+word operator
