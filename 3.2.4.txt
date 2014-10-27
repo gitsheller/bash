@@ -23,3 +23,36 @@ case word in [ [(] pattern [| pattern]...) command-list ;;]... esac        nocas
 ;;  ;&  ;;&
 ;&    causes execution to continue with the command-list associated with the next clause, if any.
 ;;&   causes the shell to test the patterns in the next clause, if any, and execute any associated command-list on a successful match.
+
+select name [in words …]; do commands; done
+The set of expanded words is printed on the standard error output stream, each preceded by a number.
+in "$@"
+PS3 empty value EOF NULL REPLY
+The line read is saved in the variable REPLY.
+
+(( expression ))  let "expression"        arithmetic expression
+
+[[ expression ]]                           conditional expression
+Word splitting and filename expansion are not performed on the words between the ‘[[’ and ‘]]’;
+Conditional operators such as ‘-f’ must be unquoted to be recognized as primaries. 
+When used with ‘[[’, the ‘<’ and ‘>’ operators sort lexicographically using the current locale. 
+When the ‘==’ and ‘!=’ operators are used, the string to the right of the operator is considered a pattern
+=~ the string to the right of the operator is considered an extended regular expression and matched accordingly
+subexpressions   BASH_REMATCH  0  n
+Expressions may be combined using the following operators, listed in decreasing order of precedence: 
+( expression )
+! expression
+expression1 && expression2
+expression1 || expression2
+
+Grouping Commands
+When commands are grouped, redirections may be applied to the entire command list.
+( list )
+Placing a list of commands between parentheses causes a subshell environment to be created,and each of the
+commands in list to be executed in that subshell.
+{ list; }
+Placing a list of commands between curly braces causes the list to be executed in the current shell context.
+The semicolon (or newline) following list is required. 
+The braces are reserved words,so they must be separated from the list by blanks or other shell metacharacters.
+The parentheses are operators, and are recognized as separate tokens by the shell
+even if they are not separated from the list by whitespace.
