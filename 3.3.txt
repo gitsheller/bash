@@ -1,0 +1,38 @@
+Shell Functions
+
+Shell functions are executed in the current shell context.
+
+name () compound-command [ redirections ]
+function name [()] compound-command [ redirections ]
+unset -f
+The exit status of a function definition is zero unless
+a syntax error occurs or a readonly function with the same name already exists. 
+When executed, the exit status of a function is the exit status of the last command executed in the body. 
+
+The braces are reserved words, so they must be separated from the list by blanks or other shell metacharacters
+{blanks lists;}
+{blanks lists blanks;}
+{blanks lists\n}
+{blanks lists&}
+{blanks lists &}
+{blanks lists & }
+; & \n
+When a function is executed, the arguments to the function become the positional parameters during its execution.
+The special parameter ‘#’ that expands to the number of positional parameters is updated to reflect the change. 
+Special parameter 0 is unchanged.
+The first element of the FUNCNAME variable is set to the name of the function while the function is executing. 
+traps DEBUG RETURN ERR
+declare trace attribute
+set -o functrace -o errtrac 
+The FUNCNEST variable, if set to a numeric value greater than 0,
+defines a maximum function nesting level. Function invocations that exceed the limit cause the 
+entire command to abort. 
+return local builtins
+declare | typeset -f -F   extdebug option
+export -f
+Note that shell functions and variables with the 
+same name may result in multiple identically-named entries in the environment passed to the shell’s children.
+Care should be taken in cases where this may cause a problem. 
+Functions may be recursive.
+The FUNCNEST variable may be used to limit the depth of the function call stack and restrict the number of function invocations. 
+By default, no limit is placed on the number of recursive calls. 
