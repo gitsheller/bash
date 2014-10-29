@@ -1,0 +1,34 @@
+Shell Expansions
+
+7
+
+brace expansion
+tilde expansion
+
+parameter and variable expansion 
+command substitution
+arithmetic expansion
+Process Substitution
+
+ word splitting 
+ filename expansion(glob)
+ 
+ 
+ 
+ quote removal
+ 
+ Brace Expansion
+ Brace expansions may be nested.
+ [preamble]{xxx}[postscript]
+ {comma-separated strings}
+ { seqeunce expression}
+ x..y[..incr]   0
+ 
+ Tilde Expansion
+ tilde-prefix     a word begins with an unquoted tilde character (‘~’)/
+ ~
+ ~loginname
+ ~+
+ ~-
+ ~N ~+N
+ ~-N
