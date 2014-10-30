@@ -1,0 +1,61 @@
+Redirections
+
+Redirection may also be used to open and close files for the current shell execution environment.
+ redirection operators may precede or appear anywhere within a simple command 
+ or may follow a command.Redirections are processed in the order they appear, from left to right. 
+ 
+ n
+ {varname}
+ 
+ >&-
+ <&-
+ 
+ ls > dirlist 2>&1
+ ls 2>&1 > dirlist
+ 
+ /dev/fd/fd
+ /dev/stdin
+ /dev/stdout
+ /dev/stderr
+ /dev/tcp/host/port
+ /dev/udp/host/port
+ Redirections using file descriptors greater than 9 should be used with care,
+ as they may conflict with file descriptors the shell uses internally.
+ 
+ [n]<word
+ [n]>[|]word
+noclobber
+[n]>>word
+&>word  >&word(csh)  >word 2>&1
+&>>word  >>word 2>&1            >>&(csh)
+
+<<[-]word
+        here-document
+delimiter       # no blanks at the beginnig
+No parameter expansion, command substitution, arithmetic expansion, or filename expansion is performed on word.
+ If any characters in word are quoted,the delimiter is the result of quote removal on word, 
+ and the lines in the here-document are not expanded.
+ If word is unquoted, all lines of the here-document are
+ subjected to parameter expansion, command substitution, and arithmetic expansion. 
+ In the latter case, the character sequence \newline is ignored,
+ and ‘\’ ust be used to quote the characters ‘\’, ‘$’, and ‘`’. 
+ If the redirection operator is ‘<<-’,
+then all leading tab characters are stripped from input lines and the line containing delimiter.
+This allows here-documents within shell scripts to be indented in a natural fashion. 
+
+ Here Strings
+ A variant of here documents
+ <<< word
+ The word is expanded and supplied to the command on its standard input. 
+ 
+ Duplicating File Descriptors
+ [n]<&word      If word evaluates to ‘-’, file descriptor n is closed.
+ [n]>&word
+ 
+ Moving File Descriptors
+ [n]<&digit-      digit is closed after being duplicated to n. 
+ [n]>&digit-
+ 
+  Opening File Descriptors for Reading and Writing
+  [n]<>word      n defaults to 0
+  
