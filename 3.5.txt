@@ -32,3 +32,46 @@ Process Substitution
  ~-
  ~N ~+N
  ~-N
+
+Shell Parameter Expansion
+${parameter}
+$parameter
+
+variable indirection
+indirect expansion
+var1=abc
+var2=var1
+${!var2}
+
+exceptions
+${!prefix}
+${!name[@]}
+The exclamation point must immediately follow the left brace in order to introduce indirection. 
+
+existence
+null
+
+if the colon is omitted, the operator tests only for existence. 
+if the colon is included, the operator tests for both parameter’s existence and that its value is not null.
+:  not null or null
+word is subject to tilde expansion, parameter expansion, command substitution, and arithmetic expansion. 
+
+${parameter:-word}
+
+${parameter:=word}  Positional parameters and special parameters may not be assigned to in this way.
+
+${parameter:?word}  ${parameter:?}
+
+${parameter:+word}
+
+Substring Expansion
+${parameter:offset}
+${parameter:offset:length}        ${var: -5:-3} "${array[*]}" "${array[@]}"
+
+${!prefix*}
+${!prefix@}
+
+${!name[@]}
+${!name[*]}
+
+${#parameter}
