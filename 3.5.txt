@@ -116,3 +116,58 @@ command substitution, and arithmetic expansion.
  IFS   field
  If the value of IFS is null, no word splitting occurs. 
   if no expansion occurs, no splitting is performed. 
+
+Filename Expansion  file name generation  globbing
+set -f
+nullglob
+nocaseglob
+failglob
+dotglob
+When a pattern is used for filename expansion, the character ‘.’ at the start of a filename or
+immediately following a slash must be matched explicitly, unless the shell option dotglob is set.
+When matching a file name, the slash character must always be matched explicitly.
+GLOBIGNORE
+The filenames . and .. are always ignored when GLOBIGNORE is set and not null. 
+setting GLOBIGNORE to a non-null value has the effect of enabling the dotglob shell option,
+so all other filenames beginning with a ‘.’ will match.
+.*
+The dotglob option is disabled when GLOBIGNORE is unset. 
+
+Pattern Matching
+The NUL character may not occur in a pattern.
+A backslash escapes the following character; the escaping backslash is discarded when matching.
+
+*        Matches any string, including the null string.
+globstar
+**       match all files and zero or more directories and subdirectories. 
+**/      match only directories and subdirectories.
+?        Matches any single character. 
+[set]
+[!set]   [^set]
+set    x-y  -abc abc-  []abc]          dictionary order
+
+character classes 
+alnum   alpha   ascii   blank   cntrl   digit   graph   lower
+print   punct   space   upper   word    xdigit
+[=c=]
+[.symbol.]
+
+extglob
+extended pattern matching operators
+
+a pattern-list is a list of one or more patterns separated by a ‘|’.
+ Composite patterns may be formed using one or more of the following sub-patterns: 
+ 
+ ?(pattern-list)  0  1
+ *(pattern-list) >=0
+ +(pattern-list) >=1
+ @(pattern-list)   Matches one of the given patterns.
+ !(pattern-list)
+ 
+ Quote Removal
+ After the preceding expansions,
+ all unquoted occurrences of the characters ‘\’, ‘'’, and ‘"’ 
+ that did not result from one of the above expansions are removed. 
+ \
+ '
+ "
