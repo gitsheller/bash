@@ -75,3 +75,44 @@ ${!name[@]}
 ${!name[*]}
 
 ${#parameter}
+
+${parameter#word}
+${parameter##word}
+${parameter%word}
+${parameter%%word}
+
+${parameter/pattern/string}   /  #  %
+
+${parameter^pattern}
+${parameter^^pattern}
+${parameter,pattern}
+${parameter,,pattern}    ?
+
+Command Substitution
+$(command)
+`command`  \
+$(cat file)  $(< file)
+To nest when using the backquoted form, escape the inner backquotes with backslashes.
+If the substitution appears within double quotes, word splitting and filename expansion are not performed on the results.
+
+Arithmetic Expansion
+$(( expression ))
+The expression is treated as if it were within double quotes,
+but a double quote inside the parentheses is not treated specially.
+All tokens in the expression undergo parameter expansion, command substitution, and quote removal. 
+Arithmetic expansions may be nested.
+
+Process Substitution
+Process substitution is supported on systems that support named pipes (FIFOs)
+or the /dev/fd method of naming open files.
+<(list)
+>(list)
+When available, process substitution is performed simultaneously with parameter and variable expansion,
+command substitution, and arithmetic expansion.
+
+ Word Splitting
+ "" prevent from Word Splitting
+ parameter expansion, command substitution, and arithmetic expansion
+ IFS   field
+ If the value of IFS is null, no word splitting occurs. 
+  if no expansion occurs, no splitting is performed. 
