@@ -1,0 +1,83 @@
+Executing Commands
+
+1. alias
+
+2. function
+3. builtin
+4. external
+
+VARNAME=VALUE ... CMD ARG ...
+env
+
+command_not_found_handle
+127
+hash builtin
+hash table
+
+Command Execution Environment
+shell execution environment
+1.  open files inherited by the shell at invocation, as modified by redirections supplied to the exec builtin 
+2.  the current working directory as set by cd, pushd, or popd, or inherited by the shell at invocation 
+3.  the file creation mode mask as set by umask or inherited from the shell’s parent  
+4.  current traps set by trap
+5.  shell parameters that are set by variable assignment
+    or with set or inherited from the shell’s parent in the environment 
+6.  options enabled at invocation (either by default or with command-line arguments) or by set 
+7.  options enabled by shopt
+8.  shell aliases defined with alias
+9.  various process IDs, including those of background jobs,the value of $$, and the value of $PPID
+
+a simple command is invoked in a separate execution environment that consists of the following.
+Unless otherwise noted, the values are inherited from the shell. 
+
+1. the shell’s open files, plus any modifications and additions specified by redirections to the command
+2. the current working directory 
+3. the file creation mode mask 
+4. shell variables and functions marked for export,
+   along with variables exported for the command, passed in the environment
+5. traps caught by the shell are reset to the values inherited from the shell’s parent,
+   and traps ignored by the shell are ignored 
+   
+A command invoked in this separate environment cannot affect the shell’s execution environment. 
+
+Command substitution, commands grouped with parentheses, and asynchronous commands
+ are invoked in a subshell environment that is a duplicate of the shell environment, 
+ except that traps caught by the shell are reset to the values that the shell inherited from its parent at invocation.
+  Builtin commands that are invoked as part of a pipeline are also executed in a subshell environment.
+  set -e
+  
+  Environment
+  an array of strings
+  a list of name-value pairs
+  name=value
+  
+  export
+  declare -x
+  The environment for any simple command or function may be augmented temporarily
+  by prefixing it with parameter assignments,
+  These assignment statements affect only the environment seen by that command.
+  set -k
+  When Bash invokes an external command, 
+  the variable ‘$_’ is set to the full path name of the command and passed to that command in its environment. 
+  
+  Exit Status
+  waitpid
+  0-255
+  > 125
+  128 + n
+  127
+  If a command is not found, the child process created to execute it returns a status of 127.
+  126
+   If a command is found but is not executable, the return status is 126
+   If a command fails because of an error during expansion or redirection, the exit status is greater than zero. 
+  
+  The exit status is used by the Bash conditional commands and some of the list constructs
+   All builtins return an exit status of 2 to indicate incorrect usage. 
+   
+    Signals
+    SIGXXX
+    signal handlers 
+    SIGHUP
+    disown
+    
+    huponexi
