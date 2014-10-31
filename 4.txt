@@ -1,0 +1,62 @@
+Bourne Shell Builtins
+
+true
+false
+
+:
+.  (source)
+break
+cd
+continue
+eval
+exec
+exit
+export
+getopts
+hash
+pwd
+readonly
+return
+shift
+test    [
+times
+trap
+umask
+unset
+
+Bash Builtin Commands
+
+alias
+unalias
+bind
+builtin
+caller
+command
+declare  (typeset)
+typeset
+echo
+enable
+help
+let
+local
+logout
+mapfile
+printf
+read
+readarray
+source    .
+type
+ulimit
+umask
+
+set
+shopt
+
+Special Builtins
+
+When Bash is executing in POSIX mode,
+the special builtins differ from other builtin commands in three respects:
+
+1. Special builtins are found before shell functions during command lookup. 
+2.  If a special builtin returns an error status, a non-interactive shell exits. 
+3.  Assignment statements preceding the command stay in effect in the shell environment after the command completes. 
