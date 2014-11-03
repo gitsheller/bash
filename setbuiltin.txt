@@ -1,0 +1,35 @@
+set [--abefhkmnptuvxBCEHPT] [-o option-name] [argument …]
+set [+abefhkmnptuvxBCEHPT] [+o option-name] [argument …]
+
+set [-abefhkmnptuvxBCHP] [-o option-name] [--] [arg ...]
+
+-a/allexport
+-B/braceexpand
+-e/errexit
+-E/errtrace
+-T/functrace
+-h/hashall
+-H/histexpand
+-k/keyword
+-m/monitor
+-C/noclobber
+-n/noexec
+-f/noglob
+-b/notify
+-u/nounset
+-t/onecmd
+-P/physical
+-p/privileged
+-v/verbose
+-x/xtrace
+vi
+emacs
+history
+ignoreeof
+nolog
+pipefail
+posix
+
+-b
+--
+-
