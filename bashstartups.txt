@@ -1,0 +1,34 @@
+login shell(interactive and non-interactive):
+  on login
+  1. /etc/profile
+  2. ~/.bash_profile | ~/.bash_login | ~/.profile   # the first one in order
+  
+  on logout
+  ~/.bash_logout  /etc/bash.bash_logout
+
+non-login shell(interactive):
+  ~/.bashrc
+
+non-interactive shell:
+  "$BASH_ENV"    # PATH is not involved
+  
+posix mode
+login shell(interactive and non-interactive):
+  1. /etc/profile
+  2. ~/.profile
+
+interactive shell:
+  "$ENV"
+
+non-interacive shell:
+  none
+  
+started with stdin bind to network connection:
+  ~/.bashrc
+  
+real uid(gid) != effective uid(gid) and -p not set
+none
+no functions imported
+SHELLOPTS, BASHOPTS, CDPATH, and GLOBIGNORE are ignore
+
+  
